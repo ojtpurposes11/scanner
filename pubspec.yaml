@@ -1,0 +1,66 @@
+name: convergent
+description: Convergent - Vehicle Plate Scanner App
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Firebase - upgraded for speech_to_text web ^1.0.0 compatibility
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
+
+  # Excel parsing - done locally on device
+  excel: ^4.0.2
+
+  # File Picker
+  file_picker: ^8.0.0+1
+
+  # Roboflow + Plate Recognizer API calls (web)
+  http: ^1.2.0
+
+  # Camera & OCR
+  camera: ^0.10.5+9
+  google_mlkit_text_recognition: ^0.11.0
+
+  # Speech to Text - voice search
+  speech_to_text: ^7.3.0
+  permission_handler: ^11.3.0
+
+  # Excel parsing internals (used by excel_parser_service.dart)
+  archive: ^3.4.9          # unzip .xlsx bytes
+  xml: ^6.5.0              # parse sheet XML
+
+  # UI
+  cupertino_icons: ^1.0.2
+  gap: ^3.0.1
+  google_fonts: ^6.1.0     # Plus Jakarta Sans
+  image: ^4.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
+  web:
+    generate: true
+    image_path: "assets/logo.png"
+  windows:
+    generate: true
+    image_path: "assets/logo.png"
+  remove_alpha_ios: true
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/

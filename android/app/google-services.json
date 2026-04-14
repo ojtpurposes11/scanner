@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "678144473208",
+    "project_id": "convergent-scanner",
+    "storage_bucket": "convergent-scanner.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678144473208:android:36e016c553257b76fb558d",
+        "android_client_info": {
+          "package_name": "com.convergent.scanner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4-b6SzEyhomxF-lpmrSBJpk3Kc8DpfUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678144473208:android:47b9ef9440d140b1fb558d",
+        "android_client_info": {
+          "package_name": "com.example.convergent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4-b6SzEyhomxF-lpmrSBJpk3Kc8DpfUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

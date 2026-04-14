@@ -1,0 +1,271 @@
+﻿Analyzing convergent...                                         
+
+warning - The declaration '_showSnack' isn't referenced - lib\screens\admin_dashboard.dart:182:8 - unused_element
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\admin_dashboard.dart:349:35 - deprecated_member_use
+   info - Use interpolation to compose strings and values - lib\screens\admin_dashboard.dart:505:24 - prefer_interpolation_to_compose_strings
+warning - The value of the local variable 'elevation' isn't used - lib\screens\admin_dashboard.dart:1028:18 - unused_local_variable
+warning - The declaration '<unnamed>' isn't referenced - lib\screens\camera_scanner_screen.dart:83:7 - unused_element
+  error - Missing concrete implementation of 'abstract class State<T extends StatefulWidget> with Diagnosticable.build' - lib\screens\camera_scanner_screen.dart:83:7 - non_abstract_class_inherits_abstract_member
+   info - The private field _manualBusy could be 'final' - lib\screens\camera_scanner_screen.dart:104:8 - prefer_final_fields
+  error - A try block must be followed by an 'on', 'catch', or 'finally' clause - lib\screens\camera_scanner_screen.dart:241:5 - missing_catch_or_finally
+   info - Statements in an if should be enclosed in a block - lib\screens\camera_scanner_screen.dart:273:24 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\camera_scanner_screen.dart:296:22 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\camera_scanner_screen.dart:311:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\camera_scanner_screen.dart:336:22 - curly_braces_in_flow_control_structures
+  error - Expected to find ';' - lib\screens\camera_scanner_screen.dart:345:5 - expected_token
+  error - Expected an identifier - lib\screens\camera_scanner_screen.dart:345:7 - missing_identifier
+  error - Unexpected text ';' - lib\screens\camera_scanner_screen.dart:345:7 - unexpected_token
+   info - Statements in an if should be enclosed in a block - lib\screens\camera_scanner_screen.dart:348:24 - curly_braces_in_flow_control_structures
+  error - Expected a class member - lib\screens\camera_scanner_screen.dart:355:7 - expected_class_member
+  error - Expected an identifier - lib\screens\camera_scanner_screen.dart:355:13 - missing_identifier
+  error - Undefined name '_pendingSearchPlate' - lib\screens\camera_scanner_screen.dart:362:9 - undefined_identifier
+  error - Undefined name '_pendingSearch' - lib\screens\camera_scanner_screen.dart:362:41 - undefined_identifier
+  error - Undefined name '_pendingSearchPlate' - lib\screens\camera_scanner_screen.dart:364:5 - undefined_identifier
+  error - Undefined name '_pendingSearch' - lib\screens\camera_scanner_screen.dart:365:5 - undefined_identifier
+  error - Undefined name '_pendingSearch' - lib\screens\camera_scanner_screen.dart:367:7 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:368:12 - undefined_identifier
+  error - Undefined name '_resultShown' - lib\screens\camera_scanner_screen.dart:368:23 - undefined_identifier
+  error - Undefined name '_pendingSearchPlate' - lib\screens\camera_scanner_screen.dart:370:20 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:372:13 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:372:22 - undefined_function
+  error - Undefined name '_resultShown' - lib\screens\camera_scanner_screen.dart:372:37 - undefined_identifier
+   info - Statements in a for should be enclosed in a block - lib\screens\camera_scanner_screen.dart:387:37 - curly_braces_in_flow_control_structures
+  error - Undefined name '_ctrl' - lib\screens\camera_scanner_screen.dart:414:9 - undefined_identifier
+  error - Undefined name '_ctrl' - lib\screens\camera_scanner_screen.dart:414:27 - undefined_identifier
+  error - Undefined name '_ctrl' - lib\screens\camera_scanner_screen.dart:416:18 - undefined_identifier
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:451:9 - undefined_identifier
+  error - Undefined name '_resultShown' - lib\screens\camera_scanner_screen.dart:451:24 - undefined_identifier
+  error - Undefined name '_ctrl' - lib\screens\camera_scanner_screen.dart:452:9 - undefined_identifier
+  error - Undefined name '_ctrl' - lib\screens\camera_scanner_screen.dart:452:27 - undefined_identifier
+  error - The function '_stopStream' isn't defined - lib\screens\camera_scanner_screen.dart:455:11 - undefined_function
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:456:10 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:457:5 - undefined_function
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:457:19 - undefined_identifier
+  error - Undefined name '_reading' - lib\screens\camera_scanner_screen.dart:457:39 - undefined_identifier
+  error - Undefined name '_noRecordMsg' - lib\screens\camera_scanner_screen.dart:457:56 - undefined_identifier
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:457:77 - undefined_identifier
+  error - Undefined name '_ctrl' - lib\screens\camera_scanner_screen.dart:462:26 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:466:12 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:467:7 - undefined_function
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:467:22 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:469:12 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:472:7 - undefined_function
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:472:22 - undefined_identifier
+  error - The argument type 'String?' can't be assigned to the parameter type 'String'.  - lib\screens\camera_scanner_screen.dart:473:37 - argument_type_not_assignable
+  error - Undefined name '_roboflow' - lib\screens\camera_scanner_screen.dart:476:32 - undefined_identifier
+  error - Undefined name '_roboflow' - lib\screens\camera_scanner_screen.dart:477:29 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:484:9 - undefined_function
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:484:24 - undefined_identifier
+  error - The argument type 'String?' can't be assigned to the parameter type 'String'.  - lib\screens\camera_scanner_screen.dart:485:44 - argument_type_not_assignable
+  error - Undefined name '_ocr' - lib\screens\camera_scanner_screen.dart:487:24 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:490:9 - undefined_function
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:490:24 - undefined_identifier
+  error - The argument type 'String?' can't be assigned to the parameter type 'String'.  - lib\screens\camera_scanner_screen.dart:491:38 - argument_type_not_assignable
+  error - Undefined name '_ocr' - lib\screens\camera_scanner_screen.dart:493:24 - undefined_identifier
+  error - The argument type 'String?' can't be assigned to the parameter type 'String'.  - lib\screens\camera_scanner_screen.dart:496:18 - argument_type_not_assignable
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:500:12 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:507:14 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:509:15 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:509:24 - undefined_function
+  error - Undefined name '_resultShown' - lib\screens\camera_scanner_screen.dart:509:39 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:521:11 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:521:20 - undefined_function
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:521:35 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:523:11 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:523:20 - undefined_function
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:523:35 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:526:11 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:526:20 - undefined_function
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:526:35 - undefined_identifier
+  error - The function '_stopStream' isn't defined - lib\screens\camera_scanner_screen.dart:564:11 - undefined_function
+  error - Undefined name '_isDisposed' - lib\screens\camera_scanner_screen.dart:565:9 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:566:10 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\camera_scanner_screen.dart:570:16 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:576:10 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:577:11 - undefined_identifier
+  error - The function '_startStream' isn't defined - lib\screens\camera_scanner_screen.dart:577:20 - undefined_function
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:582:9 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:582:18 - undefined_function
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:582:33 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:584:10 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:585:5 - undefined_function
+  error - Undefined name '_resultShown' - lib\screens\camera_scanner_screen.dart:585:20 - undefined_identifier
+  error - Undefined name '_ctrl' - lib\screens\camera_scanner_screen.dart:599:20 - undefined_identifier
+  error - Undefined name '_dbPlates' - lib\screens\camera_scanner_screen.dart:930:9 - undefined_identifier
+  error - Undefined name '_dbPlates' - lib\screens\camera_scanner_screen.dart:933:9 - undefined_identifier
+  error - Undefined name '_dbPlates' - lib\screens\camera_scanner_screen.dart:937:25 - undefined_identifier
+  error - Undefined name '_dbSearchCache' - lib\screens\camera_scanner_screen.dart:1006:20 - undefined_identifier
+  error - Undefined name '_dbNoRecordCache' - lib\screens\camera_scanner_screen.dart:1010:24 - undefined_identifier
+  error - Undefined name '_kCacheTTL' - lib\screens\camera_scanner_screen.dart:1011:71 - undefined_identifier
+  error - Undefined name '_db' - lib\screens\camera_scanner_screen.dart:1024:43 - undefined_identifier
+  error - Undefined name '_dbNoRecordCache' - lib\screens\camera_scanner_screen.dart:1033:7 - undefined_identifier
+  error - Undefined name '_dbSearchCache' - lib\screens\camera_scanner_screen.dart:1035:7 - undefined_identifier
+  error - Undefined name '_dbNoRecordCache' - lib\screens\camera_scanner_screen.dart:1036:7 - undefined_identifier
+  error - The function '_stopStream' isn't defined - lib\screens\camera_scanner_screen.dart:1047:11 - undefined_function
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:1049:10 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\camera_scanner_screen.dart:1055:16 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:1076:10 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\camera_scanner_screen.dart:1083:20 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\camera_scanner_screen.dart:1085:20 - undefined_identifier
+  error - Undefined name 'mounted' - lib\screens\camera_scanner_screen.dart:1090:10 - undefined_identifier
+  error - The function 'setState' isn't defined - lib\screens\camera_scanner_screen.dart:1091:5 - undefined_function
+  error - Undefined name '_resultShown' - lib\screens\camera_scanner_screen.dart:1092:7 - undefined_identifier
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:1092:29 - undefined_identifier
+  error - Undefined name '_reading' - lib\screens\camera_scanner_screen.dart:1093:7 - undefined_identifier
+  error - Undefined name '_noRecordMsg' - lib\screens\camera_scanner_screen.dart:1093:24 - undefined_identifier
+  error - Undefined name '_streakPlate' - lib\screens\camera_scanner_screen.dart:1094:7 - undefined_identifier
+  error - Undefined name '_streakCount' - lib\screens\camera_scanner_screen.dart:1094:28 - undefined_identifier
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:1095:7 - undefined_identifier
+  error - The function '_startStream' isn't defined - lib\screens\camera_scanner_screen.dart:1097:5 - undefined_function
+  error - Undefined name '_cameraReady' - lib\screens\camera_scanner_screen.dart:1123:13 - undefined_identifier
+  error - Undefined name '_ctrl' - lib\screens\camera_scanner_screen.dart:1123:29 - undefined_identifier
+  error - Undefined name '_ctrl' - lib\screens\camera_scanner_screen.dart:1124:48 - undefined_identifier
+  error - Undefined name '_cameraError' - lib\screens\camera_scanner_screen.dart:1125:18 - undefined_identifier
+  error - Undefined name '_cameraReady' - lib\screens\camera_scanner_screen.dart:1129:13 - undefined_identifier
+  error - Undefined name '_cameraReady' - lib\screens\camera_scanner_screen.dart:1133:13 - undefined_identifier
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:1133:30 - undefined_identifier
+  error - Undefined name '_candidates' - lib\screens\camera_scanner_screen.dart:1138:21 - undefined_identifier
+  error - Undefined name '_candidates' - lib\screens\camera_scanner_screen.dart:1146:45 - undefined_identifier
+   info - Use 'const' with the constructor to improve performance - lib\screens\camera_scanner_screen.dart:1149:17 - prefer_const_constructors
+  error - Undefined name '_cameraReady' - lib\screens\camera_scanner_screen.dart:1159:13 - undefined_identifier
+  error - Undefined name '_streakCount' - lib\screens\camera_scanner_screen.dart:1162:32 - undefined_identifier
+  error - Undefined name '_reading' - lib\screens\camera_scanner_screen.dart:1164:31 - undefined_identifier
+  error - Undefined name '_isScanning' - lib\screens\camera_scanner_screen.dart:1165:31 - undefined_identifier
+  error - Undefined name '_isScanning' - lib\screens\camera_scanner_screen.dart:1179:36 - undefined_identifier
+  error - Undefined name '_streakCount' - lib\screens\camera_scanner_screen.dart:1179:62 - undefined_identifier
+  error - Undefined name '_cameraReady' - lib\screens\camera_scanner_screen.dart:1184:13 - undefined_identifier
+   info - Use 'const' with the constructor to improve performance - lib\screens\camera_scanner_screen.dart:1187:13 - prefer_const_constructors
+  error - Undefined name '_reading' - lib\screens\camera_scanner_screen.dart:1198:24 - undefined_identifier
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:1199:21 - undefined_identifier
+  error - Undefined name '_streakCount' - lib\screens\camera_scanner_screen.dart:1200:28 - undefined_identifier
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:1202:21 - undefined_identifier
+  error - Undefined name '_noRecordMsg' - lib\screens\camera_scanner_screen.dart:1206:17 - undefined_identifier
+  error - Undefined name '_noRecordMsg' - lib\screens\camera_scanner_screen.dart:1208:40 - undefined_identifier
+  error - Undefined name '_cameraReady' - lib\screens\camera_scanner_screen.dart:1213:13 - undefined_identifier
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:1219:17 - undefined_identifier
+  error - Undefined name '_hint' - lib\screens\camera_scanner_screen.dart:1220:23 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1222:54 - deprecated_member_use
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:1229:24 - undefined_identifier
+  error - Undefined name '_resultShown' - lib\screens\camera_scanner_screen.dart:1229:39 - undefined_identifier
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:1235:29 - undefined_identifier
+  error - Undefined name '_resultShown' - lib\screens\camera_scanner_screen.dart:1235:44 - undefined_identifier
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:1239:34 - undefined_identifier
+  error - Undefined name '_resultShown' - lib\screens\camera_scanner_screen.dart:1239:50 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1240:64 - deprecated_member_use
+  error - Undefined name '_manualBusy' - lib\screens\camera_scanner_screen.dart:1244:26 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1255:43 - deprecated_member_use
+  error - Undefined name '_cameraError' - lib\screens\camera_scanner_screen.dart:1277:14 - undefined_identifier
+  error - Undefined name 'context' - lib\screens\camera_scanner_screen.dart:1280:55 - undefined_identifier
+  error - Expected a method, getter, setter or operator declaration - lib\screens\camera_scanner_screen.dart:1285:1 - expected_executable
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1321:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1327:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1378:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1417:27 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1419:57 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - lib\screens\camera_scanner_screen.dart:1431:9 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\camera_scanner_screen.dart:1431:37 - prefer_const_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1473:31 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1502:37 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - lib\screens\camera_scanner_screen.dart:1516:21 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\camera_scanner_screen.dart:1517:34 - prefer_const_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen.dart:1527:23 - deprecated_member_use
+  error - The function 'min' isn't defined - lib\screens\camera_scanner_screen_web.dart:137:19 - undefined_function
+  error - The function 'min' isn't defined - lib\screens\camera_scanner_screen_web.dart:137:34 - undefined_function
+   info - Statements in a for should be enclosed in a block - lib\screens\camera_scanner_screen_web.dart:139:41 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\screens\camera_scanner_screen_web.dart:319:20 - curly_braces_in_flow_control_structures
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen_web.dart:698:68 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen_web.dart:698:101 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen_web.dart:719:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen_web.dart:736:41 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - lib\screens\camera_scanner_screen_web.dart:769:17 - prefer_const_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen_web.dart:785:54 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen_web.dart:799:64 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen_web.dart:811:56 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen_web.dart:831:37 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - lib\screens\camera_scanner_screen_web.dart:845:21 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\camera_scanner_screen_web.dart:846:34 - prefer_const_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\camera_scanner_screen_web.dart:855:23 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\collector_dashboard.dart:169:35 - deprecated_member_use
+   info - Use interpolation to compose strings and values - lib\screens\collector_dashboard.dart:313:24 - prefer_interpolation_to_compose_strings
+   info - Use 'const' with the constructor to improve performance - lib\screens\login_screen.dart:99:11 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\login_screen.dart:100:20 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\login_screen.dart:102:22 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\screens\login_screen.dart:105:27 - prefer_const_literals_to_create_immutables
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\login_screen.dart:269:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\splash_screen.dart:147:49 - deprecated_member_use
+warning - The '!' will have no effect because the receiver can't be null - lib\services\excel_parser_service.dart:53:39 - unnecessary_non_null_assertion
+   info - The local variable '_knownHeaders' starts with an underscore - lib\services\excel_parser_service.dart:119:11 - no_leading_underscores_for_local_identifiers
+   info - Don't invoke 'print' in production code - lib\services\firestore_service.dart:216:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\firestore_service.dart:234:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\firestore_service.dart:251:7 - avoid_print
+   info - The imported package 'path_provider' isn't a dependency of the importing package - lib\services\hybrid_plate_recognition_service.dart:4:8 - depend_on_referenced_packages
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:46:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:48:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:61:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:70:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:90:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:98:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:105:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:117:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:124:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:146:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:177:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:195:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\hybrid_plate_recognition_service.dart:215:7 - avoid_print
+warning - Unused import: 'dart:io' - lib\services\image_preprocessing_service.dart:1:8 - unused_import
+   info - The imported package 'image' isn't a dependency of the importing package - lib\services\image_preprocessing_service.dart:3:8 - depend_on_referenced_packages
+   info - Don't invoke 'print' in production code - lib\services\image_preprocessing_service.dart:72:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\image_preprocessing_service.dart:99:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\image_preprocessing_service.dart:134:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\image_preprocessing_service.dart:181:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\offline_ocr_service.dart:31:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\offline_ocr_service.dart:33:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\offline_ocr_service.dart:41:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\offline_ocr_service.dart:52:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\offline_ocr_service.dart:55:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\offline_ocr_service.dart:82:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\offline_ocr_service.dart:96:7 - avoid_print
+warning - The value of the field '_confidenceThreshold' isn't used - lib\services\offline_plate_detection_service.dart:41:23 - unused_field
+   info - Don't invoke 'print' in production code - lib\services\offline_plate_detection_service.dart:50:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\roboflow_service.dart:76:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\roboflow_service.dart:81:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\roboflow_service.dart:107:7 - avoid_print
+   info - Constructors for public widgets should have a named 'key' parameter - lib\widgets\credits_dialog.dart:6:9 - use_key_in_widget_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\credits_dialog.dart:79:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\credits_dialog.dart:84:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\credits_dialog.dart:89:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\credits_dialog.dart:94:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\credits_dialog.dart:100:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\credits_dialog.dart:105:19 - prefer_const_constructors
+   info - Constructors for public widgets should have a named 'key' parameter - lib\widgets\info_dialog.dart:5:9 - use_key_in_widget_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\info_dialog.dart:10:7 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\info_dialog.dart:17:7 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\info_dialog.dart:24:7 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\info_dialog.dart:31:7 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\widgets\info_dialog.dart:38:7 - prefer_const_constructors
+warning - Unused import: 'package:flutter/foundation.dart' - lib\widgets\search_widget.dart:1:8 - unused_import
+warning - The left operand can't be null, so the right operand is never executed - lib\widgets\search_widget.dart:106:40 - dead_null_aware_expression
+warning - Unused import: 'package:flutter/foundation.dart' - lib\widgets\vehicle_result_popup.dart:1:8 - unused_import
+
+flutter : 246 issues 
+found. (ran in 66.4s)
+At line:1 char:1
++ flutter analyze 
+--no-fatal-infos 
+--no-fatal-warnings 
+2>&1 | Out-File  ...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo    
+          : 
+NotSpecified: (2    
+46 issues found. (ran 
+    in 66.4s):String) 
+[]    , 
+RemoteException
+    + 
+FullyQualifiedError   
+ Id : 
+NativeCommandErr    or
+ 
