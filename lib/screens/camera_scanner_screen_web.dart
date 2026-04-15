@@ -76,6 +76,38 @@ String? _tryTokens(List<({String text, double x, double y, double h})> elements,
   });
 
   final tokens = elements.map((e) => e.text).toList();
+
+  // ── FAST PATH: Join all raw text and scan for valid plates directly ──
+  // This bypasses the height filter entirely for obvious, clean reads.
+  final allJoined = tokens.join('');
+  
+  // If the exact entire joined text is a valid format, take it instantly.
+  if (_isValid(allJoined)) return allJoined;
+
+  if (allJoined.length >= 6) {
+    for (final len in [7, 6]) {
+      if (allJoined.length >= len) {
+        for (int i = 0; i <= allJoined.length - len; i++) {
+          final sub = allJoined.substring(i, i + len);
+          
+          // STRICT CHECK: Only allow naive substring extraction for standard vehicle plates 
+          // (`ABC1234` or `ABC123`). We DO NOT allow naive extraction for conduction stickers 
+          // (`AB1234`) here because their 2-letter format is too generic and triggers falsely on background words.
+          if (_rxPlate.hasMatch(sub) || _rxOld.hasMatch(sub)) return sub;
+          
+          final fixed = _fix(sub);
+          if (fixed != null && (_rxPlate.hasMatch(fixed) || _rxOld.hasMatch(fixed))) return fixed;
+
+          // For conduction stickers embedded in longer text, ONLY extract them if they 
+          // actually exist in the database!
+          final dbMatch = _fuzzySearchDb(sub, dbPlates);
+          if (dbMatch != null) return dbMatch;
+        }
+      }
+    }
+  }
+
+  // ── HEIGHT-FILTERED PATH (fallback for noisy frames) ──
   final sortedHeights = elements.map((e) => e.h).toList()..sort();
   final maxHeight = sortedHeights.isEmpty ? 0 : sortedHeights.last;
   final strictThresh = maxHeight * 0.85;
@@ -842,29 +874,20 @@ class _WebScannerState extends State<CameraScannerScreen> {
             ),
           ),
 
-        // ── Format pills ────────────────────────────────────────
-        if (_cameraReady && !_processing)
+        // ── Reading feedback ─────────────────────────────────────
+        if (_cameraReady && !_processing && _candidates.isNotEmpty)
           Positioned(
             bottom: 160, left: 0, right: 0,
-            child: Column(
-              children: [
-                if (_candidates.isNotEmpty)
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    margin: const EdgeInsets.only(bottom: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.black45,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text('Reading: ${_candidates.join(", ")}',
-                        style: const TextStyle(color: Colors.white70, fontSize: 10, fontWeight: FontWeight.bold)),
-                  ),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
-                  _Pill(label: 'PLATE', example: 'NHM4030'),
-                  SizedBox(width: 8),
-                  _Pill(label: 'CS', example: 'RB0827'),
-                ]),
-              ],
+            child: Center(
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.black45,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text('Reading: ${_candidates.join(", ")}',
+                    style: const TextStyle(color: Colors.white70, fontSize: 10, fontWeight: FontWeight.bold)),
+              ),
             ),
           ),
 
