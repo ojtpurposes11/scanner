@@ -27,8 +27,9 @@ const double _kFrameYOffsetFraction = 0.0;
 const double _kMinFrameOverlapFraction = 0.75;
 
 // ── Auto-scan tuning ──────────────────────────────────────────────
-const int      _kStreak   = 1;                           // instant — show result on first valid read
-const Duration _kCooldown = Duration(milliseconds: 220); // gap between OCR calls
+const int      _kStreakPlate = 1;                           // instant for standard plates
+const int      _kStreakCS    = 3;                           // require stability for conduction stickers
+const Duration _kCooldown    = Duration(milliseconds: 220); // gap between OCR calls
 
 // ── Philippine plate regexes ──────────────────────────────────────
 final _rxPlate = RegExp(r'^[A-Z]{3}[0-9]{4}$');          // NHM4030
@@ -307,17 +308,23 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
         if (mounted && _noRecordMsg != null) setState(() => _noRecordMsg = null);
       }
 
+      final isCS = _rxCS.hasMatch(plate);
+      final threshold = isCS ? _kStreakCS : _kStreakPlate;
+
       if (mounted) setState(() {
         _reading = plate;
-        _hint    = inDb ? 'Match found!' : 'Reading ($_streakCount/$_kStreak)...';
+        _hint    = inDb ? 'Match found!' 
+                 : (threshold > 1) ? 'Reading ($_streakCount/$threshold)...' : 'Reading...';
       });
 
       // Kick off a fast DB lookup; if it finds a matching vehicle we show it immediately.
-      // This happens in parallel with the streak build so we can return results
-      // as soon as the DB responds.
-      _maybeStartSearch(plate);
+      // Plates (threshold 1) will show instantly.
+      // Stickers (threshold > 1) MUST wait for the streak to complete for stability.
+      if (!isCS) {
+        _maybeStartSearch(plate);
+      }
 
-      if (_streakCount < _kStreak) return;
+      if (_streakCount < threshold) return;
 
       // ── Confirmed — search DB (fallback if the fast path hasn't already shown results)
       _streakPlate = null; _streakCount = 0;
@@ -326,9 +333,22 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
       final results = await _dbSearch(plate);
       if (!mounted || _resultShown) return;
 
+      if (results.isEmpty) {
+        // SILENT: No record found during auto-scan. 
+        // We do NOT show the popup dialog. We just reset the streak 
+        // and allow the user to keep scanning.
+        if (mounted) {
+          setState(() {
+            _reading = null;
+            _hint = 'No record found';
+            _noRecordMsg = '$plate: Not in database';
+          });
+        }
+        return;
+      }
+
       // ── Show Result ──────────────────────────────────────────────
-      // Whether it's in the DB or not, stop the scanner and show the result sheet.
-      // The VehicleResultPopup automatically handles the "Not Found" state beautifully.
+      // A positive match was found! Stop the scanner and show the result sheet.
       if (mounted) setState(() => _resultShown = true);
       _showResult(results, plate);
     } catch (_) { /* silent frame error */ }
@@ -635,6 +655,43 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
 
   // ── Plate parsing ─────────────────────────────────────────────
   String? _parsePlate(RecognizedText ocr, [Rect? frameRect]) {
+    // ── FAST PATH: Check raw line-level text first ──────────────
+    // ML Kit's line-level text is the most reliable output.
+    // If we can already see a valid plate in a line, use it directly
+    // instead of fragmenting into elements and risking height-filter loss.
+    for (final block in ocr.blocks) {
+      for (final line in block.lines) {
+        final cleaned = line.text.replaceAll(RegExp(r'[^A-Za-z0-9]'), '').toUpperCase();
+        
+        // If the exact entire line is a valid format, take it instantly.
+        if (_isValid(cleaned)) return cleaned;
+
+        if (cleaned.length >= 6) {
+          // Sliding window for substrings
+          for (final len in [7, 6]) {
+            if (cleaned.length >= len) {
+              for (int i = 0; i <= cleaned.length - len; i++) {
+                final sub = cleaned.substring(i, i + len);
+                
+                // STRICT CHECK: Only allow naive substring extraction for standard vehicle plates 
+                // (`ABC1234` or `ABC123`). We DO NOT allow naive extraction for conduction stickers 
+                // (`AB1234`) here because their 2-letter format is too generic and triggers falsely on background words.
+                if (_rxPlate.hasMatch(sub) || _rxOld.hasMatch(sub)) return sub;
+                
+                final fixed = _fix(sub);
+                if (fixed != null && (_rxPlate.hasMatch(fixed) || _rxOld.hasMatch(fixed))) return fixed;
+
+                // For conduction stickers embedded in longer text, ONLY extract them if they 
+                // actually exist in the database!
+                final dbMatch = _fuzzySearchDb(sub);
+                if (dbMatch != null) return dbMatch;
+              }
+            }
+          }
+        }
+      }
+    }
+
     // First, try to detect conduction sticker pattern (vertical letters + horizontal numbers)
     final conductionResult = _parseConductionSticker(ocr, frameRect);
     if (conductionResult != null) {
@@ -1128,29 +1185,20 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
         if (_cameraReady)
           Positioned.fill(child: CustomPaint(painter: _OverlayPainter())),
 
-        // ── Auto-scan format pills ────────────────────────────
-        if (_cameraReady && !_manualBusy)
+        // ── Auto-scan results feedback ──────────────────────────
+        if (_cameraReady && !_manualBusy && _candidates.isNotEmpty)
           Positioned(
             bottom: 180, left: 0, right: 0,
-            child: Column(
-              children: [
-                if (_candidates.isNotEmpty)
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    margin: const EdgeInsets.only(bottom: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.black45,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text('Reading: ${_candidates.join(", ")}',
-                        style: const TextStyle(color: Colors.white70, fontSize: 10, fontWeight: FontWeight.bold)),
-                  ),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
-                  _Pill(label: 'PLATE', example: 'NHM4030'),
-                  SizedBox(width: 8),
-                  _Pill(label: 'CS', example: 'RB0827'),
-                ]),
-              ],
+            child: Center(
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.black45,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text('Reading: ${_candidates.join(", ")}',
+                    style: const TextStyle(color: Colors.white70, fontSize: 10, fontWeight: FontWeight.bold)),
+              ),
             ),
           ),
 
@@ -1159,7 +1207,7 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
           Align(alignment: const Alignment(0, _kFrameYOffsetFraction),
               child: _ScanFrame(
                   streakCount: _streakCount,
-                  threshold: _kStreak,
+                  threshold: _reading != null && _rxCS.hasMatch(_reading!) ? _kStreakCS : _kStreakPlate,
                   hasReading: _reading != null,
                   isScanning: _isScanning)),
 
@@ -1179,16 +1227,9 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
           ]),
         )),
 
-        // ── Centre: format pills + status + no-record message ──
+        // ── Centre: status + no-record message ──
         if (_cameraReady)
           Center(child: Column(mainAxisSize: MainAxisSize.min, children: [
-            // Format pills
-            Row(mainAxisSize: MainAxisSize.min, children: const [
-              _Pill(label: 'PLATE', example: 'NHM4030'),
-              SizedBox(width: 8),
-              _Pill(label: 'CS', example: 'RB0827'),
-            ]),
-            const SizedBox(height: 10),
             const SizedBox(height: _kFrameH),
             const SizedBox(height: 14),
 
@@ -1197,7 +1238,7 @@ class _CameraScannerScreenState extends State<CameraScannerScreen>
               reading: _reading,
               hint: _hint,
               streakCount: _streakCount,
-              threshold: _kStreak,
+              threshold: _reading != null && _rxCS.hasMatch(_reading!) ? _kStreakCS : _kStreakPlate,
               busy: _manualBusy,
             ),
 
