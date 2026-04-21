@@ -10,7 +10,7 @@ plugins {
 
 android {
     namespace = "com.convergent.scanner"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 34
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
