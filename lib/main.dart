@@ -19,7 +19,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: "assets/config.env");
 
   runApp(const ConvergentApp());
 }

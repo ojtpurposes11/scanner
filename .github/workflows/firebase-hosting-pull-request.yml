@@ -16,8 +16,8 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
 
-      - name: Create .env file from Secret
-        run: echo "${{ secrets.DOT_ENV_FILE }}" > .env
+      - name: Create config file from Secret
+        run: echo "${{ secrets.DOT_ENV_FILE }}" > assets/config.env
 
       - name: Build Web App
         run: flutter build web --release
