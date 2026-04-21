@@ -23,7 +23,16 @@ class AuthService {
   }) async {
     final normalizedEmail = email.trim().toLowerCase();
 
-    // ── Step 1: Check credentials are known ──
+    // ── Step 1: Check if configuration is loaded ──
+    // If ADMIN_EMAIL is missing from dotenv, the .env file wasn't bundled or loaded correctly.
+    if (dotenv.env['ADMIN_EMAIL'] == null) {
+      return {
+        'success': false, 
+        'error': 'System Configuration Error: Missing .env file. Please contact your administrator.'
+      };
+    }
+
+    // ── Step 2: Check credentials are known ──
     if (!_credentials.containsKey(normalizedEmail) ||
         _credentials[normalizedEmail] != password) {
       await _auth.signOut();
