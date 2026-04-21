@@ -17,6 +17,15 @@ subprojects {
 }
 subprojects {
     project.evaluationDependsOn(":app")
+    // Force all sub-projects (e.g. google_mlkit_commons) to use a sufficient
+    // compileSdk so that android:attr/lStar (added in API 31) is available.
+    afterEvaluate {
+        if (extensions.findByName("android") != null) {
+            extensions.configure<com.android.build.gradle.BaseExtension>("android") {
+                compileSdkVersion(36)
+            }
+        }
+    }
 }
 
 tasks.register<Delete>("clean") {
