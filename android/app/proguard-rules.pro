@@ -7,3 +7,7 @@
 -keep class com.google.mlkit.vision.text.devanagari.** { *; }
 -keep class com.google.mlkit.vision.text.japanese.** { *; }
 -keep class com.google.mlkit.vision.text.korean.** { *; }
+
+# Suppress warnings for optional ML Kit modules (Chinese, Korean, Japanese, Devanagari) 
+# if they are not explicitly included as dependencies.
+-dontwarn com.google.mlkit.**
