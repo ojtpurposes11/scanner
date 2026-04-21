@@ -13,7 +13,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          flutter-version: '3.24.0'
+          # Removed specific version to always use latest stable, supporting new APIs like withValues
 
       - name: Install Dependencies
         run: flutter pub get
