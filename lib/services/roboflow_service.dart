@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Detection result from Roboflow AI model
 class PlateDetection {
@@ -32,9 +33,8 @@ class PlateDetection {
 
 /// Service for Roboflow AI license plate detection
 class RoboflowService {
-  // IMPORTANT: Replace with your actual Roboflow API key
-  // Get it from: https://app.roboflow.com/settings/api
-  static const String _apiKey = 'rf_0VlcLzTUCMc5G6kgVw1toAjIR8w2';
+  // Use environment variable for API key
+  static String get _apiKey => dotenv.env['ROBOFLOW_API_KEY'] ?? '';
   
   // Model endpoint - alpr-conduction-sticker (optimized for conduction stickers)
   // Workspace: alpr-b2zd3, Model: alpr-conduction-sticker, Version: 3

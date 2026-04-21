@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Result from Plate Recognizer API
 class PlateRecognizerResult {
@@ -20,9 +21,8 @@ class PlateRecognizerResult {
 /// Service for Plate Recognizer Snapshot API (LPR/ANPR)
 /// Free tier: 2,500 monthly requests at https://platerecognizer.com/
 class PlateRecognizerService {
-  // IMPORTANT: Replace with your actual Plate Recognizer API Token
-  // Get it from: https://app.platerecognizer.com/token/
-  static const String _apiToken = '7ff33db4a1e211bb79da90e1ef434cc15a1a6658'; 
+  // Use environment variable for API token
+  static String get _apiToken => dotenv.env['PLATE_RECOGNIZER_TOKEN'] ?? '';
   
   static const String _apiUrl = 'https://api.platerecognizer.com/v1/plate-reader/';
 

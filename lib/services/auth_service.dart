@@ -1,18 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  // Allowed credentials — username (email) → password
-  static const Map<String, String> _credentials = {
-    'admin@convergent.com': 'conv_admin2026',
-    'field@convergent.com': 'conv_field2026',
+  // Allowed credentials fetched from environment variables
+  static Map<String, String> get _credentials => {
+    dotenv.env['ADMIN_EMAIL'] ?? '': dotenv.env['ADMIN_PASSWORD'] ?? '',
+    dotenv.env['FIELD_EMAIL'] ?? '': dotenv.env['FIELD_PASSWORD'] ?? '',
   };
 
   // Each email is locked to exactly one role
-  static const Map<String, String> _roles = {
-    'admin@convergent.com': 'Admin',
-    'field@convergent.com': 'Field Collector',
+  static Map<String, String> get _roles => {
+    dotenv.env['ADMIN_EMAIL'] ?? '': 'Admin',
+    dotenv.env['FIELD_EMAIL'] ?? '': 'Field Collector',
   };
 
   Future<Map<String, dynamic>> signIn(
@@ -25,16 +26,13 @@ class AuthService {
     // ── Step 1: Check credentials are known ──
     if (!_credentials.containsKey(normalizedEmail) ||
         _credentials[normalizedEmail] != password) {
-      // Sign out any existing session so it can't bleed through
       await _auth.signOut();
       return {'success': false, 'error': 'Invalid username or password.'};
     }
 
     // ── Step 2: Enforce role lock ──
-    // The email must belong to the role the user is trying to log into.
     final assignedRole = _roles[normalizedEmail]!;
     if (attemptedRole != null && assignedRole != attemptedRole) {
-      // Sign out any stale Firebase session immediately
       await _auth.signOut();
       return {
         'success': false,
@@ -55,28 +53,13 @@ class AuthService {
         'email': normalizedEmail,
       };
     } on FirebaseAuthException catch (e) {
-      // Auto-create the Firebase user if it doesn't exist yet
-      if (e.code == 'user-not-found' || e.code == 'invalid-credential') {
-        try {
-          await _auth.createUserWithEmailAndPassword(
-            email: normalizedEmail,
-            password: password,
-          );
-          return {
-            'success': true,
-            'role': assignedRole,
-            'email': normalizedEmail,
-          };
-        } catch (_) {
-          return {
-            'success': false,
-            'error': 'Could not create account. Check Firebase Auth settings.',
-          };
-        }
-      }
+      // NOTE: Auto-creation was removed for security. 
+      // Users must be created manually in the Firebase Console.
       return {
         'success': false,
-        'error': e.message ?? 'Authentication failed. Try again.',
+        'error': e.code == 'user-not-found' 
+          ? 'Account not found in Firebase. Please contact your administrator.'
+          : e.message ?? 'Authentication failed.',
       };
     } catch (e) {
       return {'success': false, 'error': 'Unexpected error: $e'};

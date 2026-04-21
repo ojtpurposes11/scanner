@@ -55,7 +55,7 @@ class CreditsDialog extends StatelessWidget {
                                 fontWeight: FontWeight.w800,
                                 color: Colors.white)),
                         SizedBox(height: 3),
-                        Text('Version 2.0',
+                        Text('Version 1.0',
                             style: TextStyle(
                                 fontSize: 12, color: Colors.white70)),
                       ],
